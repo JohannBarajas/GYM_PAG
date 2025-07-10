@@ -2,43 +2,23 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Ejercicios por Grupo Muscular</title>
+  <title>Rutina GYM - Johan</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 30px;
-    }
-    select {
-      margin: 15px 0;
-    }
-    .ejercicio {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 15px;
-    }
-    .ejercicio img {
-      max-width: 300px;
-      height: auto;
-      margin-left: 20px;
-    }
-    .titulo-ejercicio {
-      font-weight: bold;
-      font-size: 18px;
-    }
+    body { font-family: Arial; padding: 20px; }
+    .ejercicio { display: flex; flex-wrap: wrap; margin-bottom: 25px; }
+    .ejercicio img { max-width: 300px; height: auto; margin-left: 20px; }
+    .titulo-ejercicio { font-weight: bold; font-size: 18px; }
   </style>
 </head>
 <body>
-  <h1>💪 JOHAN BARAJAS, PRIMERO LA RUTINA DE LA CAMIS</h1>
-
-  <h1>🏋️‍♂️ Rutina de Ejercicios</h1>
-
+  <h1>💪 Rutina personalizada de Johan Barajas MMM</h1>
 
   <label for="grupo">Selecciona un grupo muscular:</label>
   <select id="grupo" onchange="mostrarEjercicios()">
     <option value="">-- Selecciona --</option>
     <option value="Hombro">Hombro</option>
+    <option value="Pecho">Pecho</option>
+    <option value="Pierna">Pierna</option>
   </select>
 
   <div id="contenedor-ejercicios"></div>
@@ -47,33 +27,31 @@
     const baseDatos = {
       "Hombro": {
         "Press militar de pie": "https://fitcron.com/wp-content/uploads/2021/04/04261301-Dumbbell-Standing-Overhead-Press_shoulder_720.gif",
-        "Vuelos": "https://fitcron.com/wp-content/uploads/2021/04/03341301-Dumbbell-Lateral-Raise_shoulder-AFIX_720.gif",
-        "Elvacion frontal": "https://fitcron.com/wp-content/uploads/2021/04/42381301-Dumbbell-Seated-Lateral-to-Front-Raise_Shoulders_720.gif",
-        "Press militar Maquina": "https://www.thingys.com.ar/gymapps/tutorial/hombro.gif"
+        "Vuelos laterales": "https://fitcron.com/wp-content/uploads/2021/04/03341301-Dumbbell-Lateral-Raise_shoulder-AFIX_720.gif",
+      },
+      "Pecho": {
+        "Press de banca": "https://fitcron.com/wp-content/uploads/2021/03/02891301-Dumbbell-Bench-Press_Chest_720.gif",
+        "Aperturas con mancuernas": "https://fitcron.com/wp-content/uploads/2021/03/03081301-Dumbbell-Fly_Chest-FIX_720.gif",
+      },
+      "Pierna": {
+        "Sentadilla libre": "https://fitcron.com/wp-content/uploads/2021/04/15141301-Barbell-Quarter-Squat_Thighs_720.gif",
+        "Prensa de piernas": "https://fitcron.com/wp-content/uploads/2021/04/15751301-Sled-45%C2%B0-Narrow-Stance-Leg-Press_Thighs_720.gif",
       }
-
-
     };
 
     function mostrarEjercicios() {
       const grupo = document.getElementById("grupo").value;
-      const contenedor = document.getElementById("contenedor-ejercicios");
-      contenedor.innerHTML = "";
-
-      if (!grupo || !baseDatos[grupo]) return;
-
-      for (const ejercicio in baseDatos[grupo]) {
-        const url = baseDatos[grupo][ejercicio];
-        const div = document.createElement("div");
-        div.className = "ejercicio";
-        div.innerHTML = `
-          <div class="titulo-ejercicio">${ejercicio}</div>
-          <img src="${url}" alt="${ejercicio}">
-        `;
-        contenedor.appendChild(div);
+      const cont = document.getElementById("contenedor-ejercicios");
+      cont.innerHTML = "";
+      if (!baseDatos[grupo]) return;
+      for (let ejer in baseDatos[grupo]) {
+        cont.innerHTML += `
+          <div class="ejercicio">
+            <div class="titulo-ejercicio">${ejer}</div>
+            <img src="${baseDatos[grupo][ejer]}" alt="${ejer}">
+          </div>`;
       }
     }
   </script>
-
 </body>
 </html>

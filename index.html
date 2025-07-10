@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios por Grupo Muscular</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    select {
+      margin: 15px 0;
+    }
+    .ejercicio {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 15px;
+    }
+    .ejercicio img {
+      max-width: 300px;
+      height: auto;
+      margin-left: 20px;
+    }
+    .titulo-ejercicio {
+      font-weight: bold;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>💪 JOHAN BARAJAS</h1>
+
+  <h1>🏋️‍♂️ Rutina de Ejercicios</h1>
+
+
+  <label for="grupo">Selecciona un grupo muscular:</label>
+  <select id="grupo" onchange="mostrarEjercicios()">
+    <option value="">-- Selecciona --</option>
+    <option value="Hombro">Hombro</option>
+  </select>
+
+  <div id="contenedor-ejercicios"></div>
+
+  <script>
+    const baseDatos = {
+      "Hombro": {
+        "Press militar de pie": "https://fitcron.com/wp-content/uploads/2021/04/04261301-Dumbbell-Standing-Overhead-Press_shoulder_720.gif",
+        "Vuelos": "https://fitcron.com/wp-content/uploads/2021/04/03341301-Dumbbell-Lateral-Raise_shoulder-AFIX_720.gif",
+        "Elvacion frontal": "https://fitcron.com/wp-content/uploads/2021/04/42381301-Dumbbell-Seated-Lateral-to-Front-Raise_Shoulders_720.gif",
+        "Press militar Maquina": "https://www.thingys.com.ar/gymapps/tutorial/hombro.gif"
+      }
+
+
+    };
+
+    function mostrarEjercicios() {
+      const grupo = document.getElementById("grupo").value;
+      const contenedor = document.getElementById("contenedor-ejercicios");
+      contenedor.innerHTML = "";
+
+      if (!grupo || !baseDatos[grupo]) return;
+
+      for (const ejercicio in baseDatos[grupo]) {
+        const url = baseDatos[grupo][ejercicio];
+        const div = document.createElement("div");
+        div.className = "ejercicio";
+        div.innerHTML = `
+          <div class="titulo-ejercicio">${ejercicio}</div>
+          <img src="${url}" alt="${ejercicio}">
+        `;
+        contenedor.appendChild(div);
+      }
+    }
+  </script>
+
+</body>
+</html>

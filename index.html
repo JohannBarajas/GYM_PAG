@@ -11,31 +11,45 @@
   </style>
 </head>
 <body>
-  <h1>💪 Rutina personalizada de Johan Barajas MMM</h1>
+  <h1>💪 Rutina personalizada de La Camis linda hermosa viga </h1>
 
   <label for="grupo">Selecciona un grupo muscular:</label>
   <select id="grupo" onchange="mostrarEjercicios()">
     <option value="">-- Selecciona --</option>
-    <option value="Hombro">Hombro</option>
-    <option value="Pecho">Pecho</option>
-    <option value="Pierna">Pierna</option>
+    <option value="Aductor / Cuadriceps">Aductor/Cuadriceps</option>
+    <option value="Hombro / Biceps">Hombro / Biceps</option>
+    <option value="Gluteo">Gluteo</option>
   </select>
 
   <div id="contenedor-ejercicios"></div>
 
   <script>
     const baseDatos = {
-      "Hombro": {
-        "Press militar de pie": "https://fitcron.com/wp-content/uploads/2021/04/04261301-Dumbbell-Standing-Overhead-Press_shoulder_720.gif",
-        "Vuelos laterales": "https://fitcron.com/wp-content/uploads/2021/04/03341301-Dumbbell-Lateral-Raise_shoulder-AFIX_720.gif",
+      "Aductor / Cuadriceps": {
+        "Sentadilla HACKA / Libre": "https://www.thingys.com.ar/gymapps/tutorial/hack_new.gif",
+        "Sentadilla": "https://www.thingys.com.ar/gymapps/tutorial/sentadill_cerr.gif",
+        "Leg Station": "https://media1.tenor.com/m/L-taJvA94kQAAAAd/leg-extension.gif",
+        "Abductor": "https://i.pinimg.com/originals/4f/f3/61/4ff3610c198751eece574078d9b93111.gif",
+        
       },
-      "Pecho": {
-        "Press de banca": "https://fitcron.com/wp-content/uploads/2021/03/02891301-Dumbbell-Bench-Press_Chest_720.gif",
+      "Hombro / Biceps": {
+        "Press Plano": "https://i.pinimg.com/originals/a6/4d/df/a64ddf7b1d4775a7ca05302c0c31c881.gif",
         "Aperturas con mancuernas": "https://fitcron.com/wp-content/uploads/2021/03/03081301-Dumbbell-Fly_Chest-FIX_720.gif",
+        "Press Militar en Maquina Neutro": "https://www.thingys.com.ar/gymapps/tutorial/hombro.gif",
+        "Curl Romano": "https://fitcron.com/wp-content/uploads/2021/04/06361301-Olympic-Barbell-Hammer-Curl_Forearms_720.gif",
+        "Elevacion Frontal con lastre desde polea": "https://eresfitness.com/wp-content/uploads/26891105-Cable-One-Arm-Front-Raise-female_Shoulders_max-%E2%80%93-1.webp",
+        "Curl Biceps Barra": "https://fitcron.com/wp-content/uploads/2021/04/04471301-EZ-Barbell-Curl_Upper-Arms_720.gif",
+        "Vuelos Laterales": "https://fitcron.com/wp-content/uploads/2021/04/03341301-Dumbbell-Lateral-Raise_shoulder-AFIX_720.gif",
+        "Remo al Menton": "https://fitcron.com/wp-content/uploads/2021/04/01231301-Barbell-Wide-Grip-Upright-Row_Shoulders_720.gif",
+        
+        
       },
-      "Pierna": {
-        "Sentadilla libre": "https://fitcron.com/wp-content/uploads/2021/04/15141301-Barbell-Quarter-Squat_Thighs_720.gif",
-        "Prensa de piernas": "https://fitcron.com/wp-content/uploads/2021/04/15751301-Sled-45%C2%B0-Narrow-Stance-Leg-Press_Thighs_720.gif",
+      "Gluteo": {
+        "Pateo Lateral polea baja": "https://www.thingys.com.ar/gymapps/tutorial/gluteos_polea2.gif",
+        "hip Thust": "https://fitcron.com/wp-content/uploads/2021/04/10601301-Barbell-Hip-Thrust_Hips_720.gif",
+        "Tijera Bulgara": "https://i.pinimg.com/originals/f1/b6/16/f1b616965d2583544602ffc922e99e5a.gif",
+        "Pateo Gluteo con Step desde polea baja": "",
+        "Lumbar con enfoque gluteo": "https://www.thingys.com.ar/gymapps/tutorial/glut_femor.gif",
       }
     };
 
